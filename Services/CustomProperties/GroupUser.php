@@ -97,6 +97,9 @@ class GroupUser implements IblockPropertyTypeNativeInterface
      */
     public static function GetPropertyFieldHtml($arProperty, array $value, array $strHTMLControlName) : string
     {
+        $by = 'c_sort';
+        $order = 'asc';
+
         $rsGroups = CGroup::GetList($by, $order, ['ACTIVE' => 'Y']);
         ob_start();
         ?>
