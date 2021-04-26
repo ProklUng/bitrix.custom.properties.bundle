@@ -4,4 +4,4 @@
 
 ## Установка
 
-`composer require --dev proklung/bitrix-custom-properties-bundle`
+`composer require proklung/bitrix-custom-properties-bundle`
