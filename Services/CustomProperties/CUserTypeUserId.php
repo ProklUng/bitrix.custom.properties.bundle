@@ -10,7 +10,7 @@ use Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\Abstracts\Abstr
 /**
  * Class CUserTypeUserId
  * Кастомное UF свойство - привязка к пользователю.
- * @package Local\Bitrix\CustomProperties
+ * @package Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties
  *
  * @since 09.02.2021
  */
