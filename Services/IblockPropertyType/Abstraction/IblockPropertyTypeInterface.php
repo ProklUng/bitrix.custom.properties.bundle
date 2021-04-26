@@ -19,7 +19,7 @@ interface IblockPropertyTypeInterface
      * Инициализирует тип свойства, добавляя вызов getUserTypeDescription() при событии
      * iblock::OnIBlockPropertyBuildList
      *
-     * @return void
+     * @return mixed
      */
     public function init();
 

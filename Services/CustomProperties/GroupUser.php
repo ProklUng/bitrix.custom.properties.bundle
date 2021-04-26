@@ -22,7 +22,7 @@ class GroupUser implements IblockPropertyTypeNativeInterface
     {
         /** @psalm-suppress UndefinedFunction */
         AddEventHandler(
-            'block',
+            'iblock',
             'OnIBlockPropertyBuildList',
             [__CLASS__, 'GetUserTypeDescription']
         );
