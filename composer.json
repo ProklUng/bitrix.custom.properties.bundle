@@ -17,8 +17,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/ProklUng/bitrix.custom.properties.bundle/issues",
-        "source": "https://github.com/ProklUng/bitrix.custom.properties.bundle"
+        "issues": "https://github.com/ProklUng/bitrix-custom-properties-bundle/issues",
+        "source": "https://github.com/ProklUng/bitrix-custom-properties-bundlee"
     },
     "autoload": {
         "psr-4": {
