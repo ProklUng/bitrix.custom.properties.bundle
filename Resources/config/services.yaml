@@ -1,0 +1,105 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  # Валидатор EMAIL.
+  bitrix_custom_properties_bundle.email_validator:
+    public: false
+    class: Prokl\BitrixCustomPropertiesBundle\Services\Validators\CustomEmailValidatorNullable
+
+  # Валидатор телефона.
+  bitrix_custom_properties_bundle.phone_validator:
+    public: false
+    class: Prokl\BitrixCustomPropertiesBundle\Services\Validators\LaravelPhoneValidatorNullable
+
+  # Свойство EMAIL.
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\Email:
+    arguments: ['@bitrix_custom_properties_bundle.email_validator']
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  # Свойство PHONE.
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\Phone:
+    arguments: ['@bitrix_custom_properties_bundle.phone_validator']
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  # Свойство YoutubeVideo.
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\YoutubeVideo:
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  # Свойство привязка к форме.
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\FormType:
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\YesNoType:
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  # Кастомное свойство "Привязка к группе пользователей".
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\GroupUser:
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\EnumProperty\Base:
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  # Кастомное свойство "Привязка к элементу с описанием".
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\ListElementWithDescription:
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  # Комплексное свойство инфоблока.
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\CIBlockPropertyCProp:
+    tags:
+      - { name: bitrix.custom.property.type }
+
+  # Кастомное пользовательское свойство "Привязка к пользователю".
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\CUserTypeUserId:
+    tags:
+      - { name: bitrix.uf.property.type }
+
+  # Кастомное пользовательское свойство "Привязка к группам пользователей".
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\CUserTypeUserGroup:
+    tags:
+      - { name: bitrix.uf.property.type }
+
+  # UF HTML поле с визуальным редактором.
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\UFVisualEditor:
+    tags:
+      - { name: bitrix.uf.property.type }
+
+  ###########
+  # Сервисы
+  ##########
+
+  # Инициализатор кастомных пользовательских (UF) свойств.
+  Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomUfPropertiesProcessor:
+    class: Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomUfPropertiesProcessor
+    arguments: [!tagged bitrix.uf.property.type]
+
+  # Подвязка событий инициализации кастомных пользовательских (UF) свойств.
+  bitrix_custom_properties_bundle.init.uf.custom.properties:
+    class: Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomUfPropertiesProcessor
+    factory: ['@Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomUfPropertiesProcessor', 'register']
+    tags: ['service.bootstrap']
+
+  # Инициализатор кастомных свойств.
+  Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomIblockPropertiesProcessor:
+    class: Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomIblockPropertiesProcessor
+    arguments: [!tagged bitrix.custom.property.type]
+
+  # Подвязка событий инициализации кастомных свойств.
+  bitrix_custom_properties_bundle.init.custom.properties:
+    class: Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomIblockPropertiesProcessor
+    factory: ['@Prokl\BitrixCustomPropertiesBundle\Services\PropertiesProcessor\CustomIblockPropertiesProcessor', 'register']
+    tags: ['service.bootstrap']
+
+  # Работа с кастомными свойствами инфоблока через модуль asd.iblock.
+  bitrix_custom_properties_bundle.asd_iblock_tools:
+    class: Prokl\BitrixCustomPropertiesBundle\Services\AsdIblockTools\IblockProperty

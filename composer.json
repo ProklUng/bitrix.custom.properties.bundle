@@ -1,0 +1,42 @@
+{
+    "name": "proklung/bitrix-custom-properties-bundle",
+    "description": "Бандл для Битрикс + Symfony с набором кастомных свойств",
+    "type": "symfony-bundle",
+    "keywords": [
+        "bitrix",
+        "bitrix-symfony",
+        "bitrix-bundle",
+        "php"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gavrilov Fedy",
+            "email": "fedor.gavrilov.75@mail.ru",
+            "homepage": "https://github.com/ProklUng"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ProklUng/bitrix.custom.properties.bundle/issues",
+        "source": "https://github.com/ProklUng/bitrix.custom.properties.bundle"
+    },
+    "autoload": {
+        "psr-4": {
+            "Prokl\\BitrixCustomPropertiesBundle\\": ""
+        }
+    },
+    "require": {
+        "php": ">=7.3",
+        "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.0",
+        "egulias/email-validator": "^2.1",
+        "illuminate/validation": "^6.0",
+        "giggsey/libphonenumber-for-php": "^8.12"
+    },
+    "require-dev": {
+    },
+    "extra": {
+        "installer-paths": {
+            "vendor/sheerockoff/bitrix-ci/files/bitrix/modules/{$name}/": ["type:bitrix-module"]
+        }
+    }
+}
