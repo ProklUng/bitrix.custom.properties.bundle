@@ -58,7 +58,7 @@ class CustomIblockPropertiesProcessor
                 );
             }
 
-            if (!$processor->init()) {
+            if ($processor->init() === false) {
                 throw new RuntimeException(
                     'Кастомный тип  ' . get_class($processor) . ' не зарегистрировался.'
                 );
