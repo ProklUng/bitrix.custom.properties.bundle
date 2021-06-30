@@ -116,7 +116,7 @@ abstract class IblockPropertyTypeBase implements IblockPropertyTypeInterface
     /**
      * Определяет в каком режиме отображается свойство.
      *
-     * @param array $control
+     * @param array $control Режим управления.
      *
      * @return string
      */

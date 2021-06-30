@@ -2,7 +2,6 @@
 
 namespace Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties;
 
-
 use Prokl\BitrixCustomPropertiesBundle\Services\IblockPropertyType\Abstraction\IblockPropertyTypeBase;
 
 /**

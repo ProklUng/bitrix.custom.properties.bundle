@@ -24,10 +24,10 @@ class CUserTypeUserId extends AbstractUserTypeProperty
     public function GetUserTypeDescription() : array
     {
         return [
-            "USER_TYPE_ID" => 'custom_userid', //Уникальный идентификатор типа свойств
-            "CLASS_NAME" => __CLASS__,
-            "DESCRIPTION" => 'Привязка к пользователю',
-            "BASE_TYPE" => CUserTypeManager::BASE_TYPE_INT,
+            'USER_TYPE_ID' => 'custom_userid',
+            'CLASS_NAME' => __CLASS__,
+            'DESCRIPTION' => 'Привязка к пользователю',
+            'BASE_TYPE' => CUserTypeManager::BASE_TYPE_INT,
         ];
     }
 
@@ -36,7 +36,7 @@ class CUserTypeUserId extends AbstractUserTypeProperty
      *
      * @param $arUserField
      *
-     * @return array|bool|CDBResult
+     * @return array|boolean|CDBResult
      */
     public function GetList($arUserField)
     {
@@ -64,8 +64,8 @@ class CUserTypeUserId extends AbstractUserTypeProperty
      */
     protected static function getEmptyCaption(array $arUserField)
     {
-        return $arUserField["SETTINGS"]["CAPTION_NO_VALUE"] !== ''
-            ? $arUserField["SETTINGS"]["CAPTION_NO_VALUE"]
+        return $arUserField['SETTINGS']['CAPTION_NO_VALUE'] !== ''
+            ? $arUserField['SETTINGS']['CAPTION_NO_VALUE']
             : 'Пользователь не выбран';
     }
 }

@@ -34,15 +34,15 @@ class GroupUser implements IblockPropertyTypeNativeInterface
     public static function GetUserTypeDescription() : array
     {
         return [
-            "PROPERTY_TYPE" => "N",
-            "USER_TYPE" => "USER_GROUP",
-            "DESCRIPTION" => "Привязка к группе пользователей",
-            "CheckFields" => [__CLASS__, "CheckFields"],
-            "GetLength" => [__CLASS__, "GetLength"],
-            "GetPropertyFieldHtml" => [__CLASS__, "GetPropertyFieldHtml"],
-            "GetAdminListViewHTML" => [__CLASS__, "GetAdminListViewHTML"],
-            "GetPublicViewHTML" => [__CLASS__, "GetPublicViewHTML"],
-            "GetSearchContent" => [__CLASS__, "GetSearchContent"],
+            'PROPERTY_TYPE' => 'N',
+            'USER_TYPE' => 'USER_GROUP',
+            'DESCRIPTION' => 'Привязка к группе пользователей',
+            'CheckFields' => [__CLASS__, 'CheckFields'],
+            'GetLength' => [__CLASS__, 'GetLength'],
+            'GetPropertyFieldHtml' => [__CLASS__, 'GetPropertyFieldHtml'],
+            'GetAdminListViewHTML' => [__CLASS__, 'GetAdminListViewHTML'],
+            'GetPublicViewHTML' => [__CLASS__, 'GetPublicViewHTML'],
+            'GetSearchContent' => [__CLASS__, 'GetSearchContent'],
         ];
     }
 
@@ -105,11 +105,11 @@ class GroupUser implements IblockPropertyTypeNativeInterface
         ?>
       <select name="<?= $strHTMLControlName['VALUE'] ?>">
         <option value="">Выбрать</option>
-          <?php while ($arGroup = $rsGroups->Fetch()):?>
+          <?php while ($arGroup = $rsGroups->Fetch()) :?>
             <option
-                value="<?= $arGroup['ID'] ?>"<?= ($value['VALUE'] == $arGroup['ID'] ? " selected=\"selected\"" : "") ?>>
-              [<?= $arGroup['ID'] ?>] <?= $arGroup["NAME"] ?></option>
-          <?endwhile; ?>
+                value="<?= $arGroup['ID'] ?>"<?= ($value['VALUE'] == $arGroup['ID'] ? ' selected="selected"' : '') ?>>
+              [<?= $arGroup['ID'] ?>] <?= $arGroup['NAME'] ?></option>
+          <?php endwhile; ?>
         ?>
       </select>
         <?php
@@ -129,10 +129,10 @@ class GroupUser implements IblockPropertyTypeNativeInterface
         if ($group_id) {
             $arGroup = CGroup::GetByID($value['VALUE'])->Fetch();
 
-            return "[{$arGroup['ID']}] ".htmlspecialcharsex($arGroup["NAME"]);
+            return "[{$arGroup['ID']}] ".htmlspecialcharsex($arGroup['NAME']);
         }
 
-        return "&nbsp;";
+        return '&nbsp;';
     }
 
     /**
@@ -148,10 +148,10 @@ class GroupUser implements IblockPropertyTypeNativeInterface
         if ($group_id) {
             $arGroup = CGroup::GetByID($value['VALUE'])->Fetch();
             /** @psalm-suppress UndefinedFunction */
-            return "[{$arGroup['ID']}] ".htmlspecialcharsex($arGroup["NAME"]);
+            return "[{$arGroup['ID']}] ".htmlspecialcharsex($arGroup['NAME']);
         }
 
-        return "&nbsp;";
+        return '&nbsp;';
     }
 
     /**

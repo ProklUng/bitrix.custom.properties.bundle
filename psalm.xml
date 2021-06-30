@@ -26,16 +26,6 @@
     </extraFiles>
 
     <issueHandlers>
-        <DeprecatedMethod>
-            <errorLevel type="suppress">
-                <directory name="/"/>
-            </errorLevel>
-        </DeprecatedMethod>
-        <DeprecatedClass>
-            <errorLevel type="suppress">
-                <directory name="/"/>
-            </errorLevel>
-        </DeprecatedClass>
         <UndefinedGlobalVariable>
             <errorLevel type="suppress">
                 <referencedVariable name="$APPLICATION" />
@@ -55,41 +45,11 @@
             </errorLevel>
         </UndefinedConstant>
 
-        <InvalidArgument>
-            <errorLevel type="suppress">
-                <directory name="/"/>
-            </errorLevel>
-        </InvalidArgument>
-
-        <TooFewArguments>
-            <errorLevel type="suppress">
-                <directory name="/"/>
-            </errorLevel>
-        </TooFewArguments>
-
-        <ArgumentTypeCoercion>
-            <errorLevel type="suppress">
-                <directory name="/"/>
-            </errorLevel>
-        </ArgumentTypeCoercion>
-
-        <LessSpecificReturnStatement>
-            <errorLevel type="suppress">
-                <directory name="/"/>
-            </errorLevel>
-        </LessSpecificReturnStatement>
-
         <UndefinedFunction>
             <errorLevel type="suppress">
                 <directory name="/"/>
             </errorLevel>
         </UndefinedFunction>
-
-        <UndefinedMagicPropertyFetch>
-            <errorLevel type="suppress">
-                <directory name="/"/>
-            </errorLevel>
-        </UndefinedMagicPropertyFetch>
 
         <UnresolvableInclude>
             <errorLevel type="suppress">

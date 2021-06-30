@@ -78,8 +78,8 @@ class FormType extends IblockPropertyTypeBase
      */
     public function getUIFilterProperty(array $property, $controlName, array &$filter)
     {
-        $filter["type"] = 'list';
-        $filter["items"] = array_column(self::getFormList(), 'NAME', 'SID');
+        $filter['type'] = 'list';
+        $filter['items'] = array_column(self::getFormList(), 'NAME', 'SID');
     }
 
     /**
@@ -99,9 +99,9 @@ class FormType extends IblockPropertyTypeBase
     }
 
     /**
-     * @param string   $inputName
-     * @param string   $selectedValue
-     * @param boolean  $addEmpty
+     * @param string  $inputName
+     * @param string  $selectedValue
+     * @param boolean $addEmpty
      *
      * @throws LoaderException
      * @return string

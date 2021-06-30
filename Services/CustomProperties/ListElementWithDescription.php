@@ -39,7 +39,7 @@ class ListElementWithDescription implements IblockPropertyTypeNativeInterface
     {
         return [
             'PROPERTY_TYPE' => 'E',
-            "USER_TYPE" => self::USER_TYPE,
+            'USER_TYPE' => self::USER_TYPE,
             'DESCRIPTION' => 'Привязка к элементу с описанием',
             'GetPropertyFieldHtml' => [__CLASS__, 'GetPropertyFieldHtml'],
             'ConvertToDB' => [__CLASS__, 'ConvertToDB'],
@@ -81,8 +81,8 @@ class ListElementWithDescription implements IblockPropertyTypeNativeInterface
           <tr>
             <td align="center" width="50%">
               <input name="'.$strHTMLControlName['VALUE'].'" id="'.$strHTMLControlName['VALUE'].'" value="'.htmlspecialcharsex($arValue['VALUE']).'" size="5" type="text">
-              <input type="button" value="Выбрать" onClick="jsUtils.OpenWindow(\'/bitrix/admin/iblock_element_search.php?lang='.LANG.'&IBLOCK_ID='.$arProperty["LINK_IBLOCK_ID"].'&n='.$strHTMLControlName['VALUE'].'\', 600, 500);">
-              <br><span id="sp_'.md5($strHTMLControlName['VALUE']).'_'.$key.'" >'.$arItem["NAME"].'</span>
+              <input type="button" value="Выбрать" onClick="jsUtils.OpenWindow(\'/bitrix/admin/iblock_element_search.php?lang='.LANG.'&IBLOCK_ID='.$arProperty['LINK_IBLOCK_ID'].'&n='.$strHTMLControlName['VALUE'].'\', 600, 500);">
+              <br><span id="sp_'.md5($strHTMLControlName['VALUE']).'_'.$key.'" >'.$arItem['NAME'].'</span>
             </td>
             <td align="center">
               <input type="text" id="meas" name="'.$strHTMLControlName['DESCRIPTION'].'[0]" value="'.htmlspecialcharsex($arValue['DESCRIPTION'][0]).'" />
