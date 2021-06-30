@@ -26,12 +26,18 @@
         }
     },
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.3 | ~8",
         "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.0",
         "egulias/email-validator": "^2.1",
         "illuminate/validation": "^6.0",
         "giggsey/libphonenumber-for-php": "^8.12"
     },
     "require-dev": {
+        "proklung/bitrix-phpunit-testing-tools": "^1.0"
+    },
+    "extra": {
+        "installer-paths": {
+            "vendor/sheerockoff/bitrix-ci/files/bitrix/modules/{$name}/": ["type:bitrix-module"]
+        }
     }
 }

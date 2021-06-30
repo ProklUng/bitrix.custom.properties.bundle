@@ -41,8 +41,8 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
     {
         AddEventHandler(
             'iblock',
-            "OnIBlockPropertyBuildList",
-            [__CLASS__, "GetUserTypeDescription"]
+            'OnIBlockPropertyBuildList',
+            [__CLASS__, 'GetUserTypeDescription']
         );
     }
 
@@ -331,7 +331,6 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
             foreach ($arData as $code => $value) {
                 $return['VALUE'][$code] = $value;
             }
-
         }
 
         return $return;
@@ -411,17 +410,20 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
         } else {
             $data = '';
 
-            if ($strHTMLControlName["MODE"] === "FORM_FILL" && CModule::IncludeModule('fileman')) {
+            if ($strHTMLControlName['MODE'] === 'FORM_FILL' && CModule::IncludeModule('fileman')) {
                 $inputName = $strHTMLControlName['VALUE'].'['.$code.']';
-                $data = CFileInput::Show($inputName, $fileId,
+                $data = CFileInput::Show(
+                    $inputName,
+                    $fileId,
                     [
-                        "PATH" => "Y",
-                        "IMAGE" => "Y",
-                        "MAX_SIZE" => [
-                            "W" => COption::GetOptionString("iblock", "detail_image_size"),
-                            "H" => COption::GetOptionString("iblock", "detail_image_size"),
+                        'PATH' => 'Y',
+                        'IMAGE' => 'Y',
+                        'MAX_SIZE' => [
+                            'W' => COption::GetOptionString('iblock', 'detail_image_size'),
+                            'H' => COption::GetOptionString('iblock', 'detail_image_size'),
                         ],
-                    ], [
+                    ],
+                    [
                         'upload' => true,
                         'medialib' => true,
                         'file_dialog' => true,
@@ -513,8 +515,13 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
         $elUrl = '';
         if (!empty($id)) {
             /** @psalm-suppress PossiblyInvalidMethodCall */
-            $arElem = CIBlockElement::GetList([], ['ID' => $id], false, ['nPageSize' => 1],
-                ['ID', 'IBLOCK_ID', 'IBLOCK_TYPE_ID', 'NAME'])->Fetch();
+            $arElem = CIBlockElement::GetList(
+                [],
+                ['ID' => $id],
+                false,
+                ['nPageSize' => 1],
+                ['ID', 'IBLOCK_ID', 'IBLOCK_TYPE_ID', 'NAME']
+            )->Fetch();
             if (!empty($arElem)) {
                 $elUrl .= '<a target="_blank" href="/bitrix/admin/iblock_element_edit.php?IBLOCK_ID='.$arElem['IBLOCK_ID'].'&ID='.$arElem['ID'].'&type='.$arElem['IBLOCK_TYPE_ID'].'">'.$arElem['NAME'].'</a>';
             }
@@ -549,8 +556,13 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
         $elUrl = '';
         if (!empty($id)) {
             /** @psalm-suppress PossiblyInvalidMethodCall */
-            $arElem = CIBlockSection::GetList([], ['ID' => $id], false, [],
-                ['ID', 'IBLOCK_ID', 'IBLOCK_TYPE_ID', 'NAME'])->Fetch();
+            $arElem = CIBlockSection::GetList(
+                [],
+                ['ID' => $id],
+                false,
+                [],
+                ['ID', 'IBLOCK_ID', 'IBLOCK_TYPE_ID', 'NAME']
+            )->Fetch();
             if (!empty($arElem)) {
                 $elUrl .= '<a target="_blank" href="/bitrix/admin/iblock_section_search.php?IBLOCK_ID='.$arElem['IBLOCK_ID'].'&ID='.$arElem['ID'].'&type='.$arElem['IBLOCK_TYPE_ID'].'">'.$arElem['NAME'].'</a>';
             }
@@ -645,7 +657,7 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
                   width: unset !important;
               }
           </style>
-            <?
+            <?php
         }
     }
 
@@ -736,7 +748,7 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
                   })
               })
           </script>
-            <?
+            <?php
         }
     }
 
@@ -816,7 +828,7 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
                   min-width: 125px;
               }
           </style>
-            <?
+            <?php
         }
     }
 
@@ -842,7 +854,8 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
             }
         }
 
-        uasort($arResult,
+        uasort(
+            $arResult,
             /**
              * @param array $a
              * @param array $b
@@ -854,7 +867,8 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
                 }
 
                 return ($a['SORT'] < $b['SORT']) ? -1 : 1;
-            });
+            }
+        );
 
         return $arResult;
     }
@@ -891,7 +905,7 @@ class CIBlockPropertyCProp implements IblockPropertyTypeNativeInterface
     /**
      * @param mixed $arValue
      *
-     * @return false|int|mixed|string
+     * @return false|integer|mixed|string
      *
      * @internal Нюанс: загрузка по ссылке - без домена!
      */

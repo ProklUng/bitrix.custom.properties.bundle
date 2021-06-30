@@ -59,6 +59,11 @@ services:
     tags:
       - { name: bitrix.custom.property.type }
 
+  # Свойство Таблицы.
+  Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\TablesProperty:
+    tags:
+      - { name: bitrix.custom.property.type }
+
   # Кастомное пользовательское свойство "Привязка к пользователю".
   Prokl\BitrixCustomPropertiesBundle\Services\CustomProperties\CUserTypeUserId:
     tags:
